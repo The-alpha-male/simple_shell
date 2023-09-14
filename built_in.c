@@ -7,7 +7,8 @@
  * Return: (1) if command is in-built
  */
 
-int built_in_cmd(char *command){
+int built_in_cmd(char *command)
+{
 	return (strcmp(command, "exit") == 0
 	|| strcmp(command, "env") == 0);
 }
@@ -16,7 +17,8 @@ int built_in_cmd(char *command){
  * handle_exit - activates when exit command is used
  */
 
-void handle_exit(void){
+void handle_exit(void)
+{
 	exit(0);
 }
 
@@ -24,10 +26,13 @@ void handle_exit(void){
  * handle_environment - show environment variables to the standard output
  */
 
-void handle_environment(void){
+void handle_environment(void)
+{
 	extern char **environment;
 	char **env = environment;
-	while (*env) {
+
+	while (*env)
+	{
 		printf("%s\n", *env);
 		env++;
 	}
