@@ -2,15 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern char **environment;
-
 /**
  * exe_command - checks if 1st element of array is NULL
  * @args: pointer to a args
+ * @environment: pointer to a pointer
  * Return: (1) SUCCESS
  */
 
-int exe_command(char **args)
+int exe_command(char **args, char **environment)
 {
 	pid_t pid;
 	int status;
