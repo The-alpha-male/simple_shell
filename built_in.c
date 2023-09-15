@@ -24,11 +24,11 @@ void handle_exit(void)
 
 /**
  * handle_environment - show environment variables to the standard output
+ * @environment: pointer to a char pointer
  */
 
-void handle_environment(void)
+void handle_environment(char **environment)
 {
-	extern char **environment;
 	char **env = environment;
 
 	while (*env)
