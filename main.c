@@ -18,7 +18,7 @@ int main(void)
 		display_prompt();
 		line = read_line();
 		args = parse_line(line);
-		status = execute_command(args);
+		status = exe_command(args);
 
 		free(line);
 		free(args);

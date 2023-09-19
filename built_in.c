@@ -27,9 +27,10 @@ void handle_exit(void)
  * @environment: pointer to a char pointer
  */
 
-void handle_env(char **environment)
+void handle_env(void)
 {
-	char **env = environment;
+	extern char **environ;
+	char **env = environ;
 
 	while (*env)
 	{

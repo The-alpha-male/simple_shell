@@ -5,11 +5,10 @@
 /**
  * exe_command - checks if 1st element of array is NULL
  * @args: pointer to a args
- * @env: pointer to a pointer
  * Return: (1) SUCCESS
  */
 
-int exe_command(char **args, char **env)
+int exe_command(char **args)
 {
 	pid_t pid;
 	int status;
@@ -19,7 +18,7 @@ int exe_command(char **args, char **env)
 		return (1);
 	}
 
-	if (is_build_in(args[0]))
+	if (built_in_cmd(args[0]))
 	{
 		if (strcmp(args[0], "exit") == 0)
 		{

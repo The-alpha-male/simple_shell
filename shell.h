@@ -13,8 +13,9 @@ void display_prompt(void);
 char *read_line(void);
 char **parse_line(char *line);
 int execute_command(char **args);
-int is_build_in(char *command);
+int built_in_cmd(char *command);
 void handle_exit(void);
 void handle_environment(void);
-
+void handle_env(void);
+int exe_command(char **args);
 #endif
