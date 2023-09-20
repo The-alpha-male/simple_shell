@@ -4,7 +4,7 @@
 /**
  * built_in_cmd - checks if command is in-built
  * @command: pointer to a char
- * Return: (1) if command is in-built
+ * Return: (1) if command is in-built (0) FAIL
  */
 
 int built_in_cmd(char *command)
