@@ -18,4 +18,5 @@ void handle_exit(void);
 void handle_environment(void);
 void handle_env(void);
 int exe_command(char **args);
+extern char **environ;
 #endif
