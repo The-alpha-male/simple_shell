@@ -19,6 +19,9 @@ int built_in_cmd(char *command)
 
 void handle_exit(void)
 {
+	char last_exit[] = "Bye You are Leaving Shell.......\n";
+
+	write(STDOUT_FILENO, last_exit, sizeof(last_exit) - 1);
 	exit(0);
 }
 
