@@ -10,20 +10,20 @@
  */
 int main(void)
 {
-        char *line;
-        char **args;
-        int status;
+	char *line;
+	char **args;
+	int status;
 
-        do {
-                display_prompt();
-                line = read_line();
-                args = parse_line(line);
-                status = exe_command(args);
+	do {
+		display_prompt();
+		line = read_line();
+		args = parse_line(line);
+		status = exe_command(args);
 
-                free(line);
-                free(args);
-        } while (status);
+		free(line);
+		free(args);
+	} while (status);
 
-        return (0);
+	return (0);
 }
 
