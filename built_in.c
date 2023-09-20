@@ -27,17 +27,15 @@ void handle_exit(void)
 
 /**
  * handle_env - show environment variables to the standard output
- * @environment: pointer to a char pointer
  */
 
 void handle_env(void)
 {
-	extern char **environ;
-	char **env = environ;
+	int i = 0;
 
-	while (*env)
+	while (environ[i] != NULL)
 	{
-		printf("%s\n", *env);
-		env++;
+		printf("%s\n", environ[i]);
+		i++;
 	}
 }
