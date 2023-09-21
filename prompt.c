@@ -7,5 +7,6 @@
 
 void display_prompt(void)
 {
-	printf("WillyMunene_shell$ ");
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILEO, "$ ", 2)
 }
