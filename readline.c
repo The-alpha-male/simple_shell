@@ -20,8 +20,10 @@ char *read_line(void)
 	{
 		if (feof(stdin))
 		{
-			printf("\n");
-			exit(0); /* Handle Ctrl+D */
+			free(line);
+			return (NULL);
+			/*printf("\n");*/
+			/*exit(0);*/ /* Handle Ctrl+D */
 		}
 		else
 		{
