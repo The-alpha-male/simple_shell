@@ -4,21 +4,20 @@
 #include "shell.h"
 
 #define BUFFER_SIZE 1024
-
 /**
  * get_user_line - reads user inputs
  * @line: p tp that stores the buffer
- * @n: size of the buffer 
+ * @n: size of the buffer
  * @cpt_inpt: line to read
  * @buffer_size: size storing the cpt_inpt
  * Return: num of char read
  */
-
-ssize_t get_user_line(char *cpt_inpt, size_t buffer_size, char **line, size_t *n)
+ssize_t get_user_line(char *cpt_inpt,
+		size_t buffer_size, char **line, size_t *n)
 {
 	static char buffer[BUFFER_SIZE];
 	static size_t cb_pos, cb_size;
-	size_t nw_pos, len_line, x,y, newsize;
+	size_t nw_pos, len_line, x, y, newsize;
 	char *newrine;
 
 	for (y = 0; y < buffer_size && cpt_inpt[y] != '\0'; y++)
