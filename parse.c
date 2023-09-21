@@ -10,7 +10,7 @@
  */
 char **parse_line(char *line)
 {
-	const char delim[] = " ";
+	const char delim[] = "\t\n";
 	char **args = malloc(BUFSIZE * sizeof(char *));
 	char *token;
 	int i = 0;
