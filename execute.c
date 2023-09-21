@@ -33,11 +33,11 @@ int exe_command(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-
-		execve(args[0], args, environ);
-
-		perror("execve");
-		exit(EXIT_FAILURE);
+		if (execve(args[0], args, environ) == -1)
+		{
+			perror("Error in executing command");
+			exit(EXIT_FAILURE);
+		}
 	} else if (pid < 0)
 	{
 		perror("fork");
