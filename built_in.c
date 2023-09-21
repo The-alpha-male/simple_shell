@@ -26,7 +26,7 @@ void handle_exit(void)
 }
 
 /**
- * handle_env - show environment variables to the standard output
+ * environment_printf - show environment variables to the standard output
  */
 
 void environment_printf(void)
