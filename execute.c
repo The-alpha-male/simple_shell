@@ -1,53 +1,58 @@
 #include "shell.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
 
 /**
  * exe_command - checks if 1st element of array is NULL
- * @args: pointer to a args
+ * @arguments: pointer to a args
+ * @args_array: urguments container
  * Return: (1) SUCCESS
  */
 
-int exe_command(char **args)
+int exe_command(char *arguments, char **args_array)
 {
-	pid_t pid;
-	int status;
+	char *cmd_path, cmd;
+	pid_t process_id;
+	int sts;
 
-	if (args[0] == NULL)
+	if (!args_array[0])
+		return (0);
+	cmd = args_array[0];
+	if (strcmp(cmd, "env") == 0)
+		/*print the environment*/
+		environment_printf();
+	else if (strcmp(cmd, "exit") == 0)
 	{
-		return (1);
+		/*exit*/
+		handle_exit();
 	}
-
-	if (built_in_cmd(args[0]))
+	else
 	{
-		if (strcmp(args[0], "exit") == 0)
+		cmd_path = find_location(cmd);
+		if (!cmd_path)
 		{
-			handle_exit();
-		} else if (strcmp(args[0], "env") == 0)
-		{
-			handle_env();
+			fprintf(stderr, "%s: No such file\n", arguments);
+			return (0);
 		}
-		return (1);
-	}
-
-	pid = fork();
-	if (pid == 0)
-	{
-		if (execve(args[0], args, environ) == -1)
+		process_id = fork();
+		if (process_id == -1)
+			perror("Error");
+		else if (process_id == 0)
 		{
-			perror("Error in executing command");
-			exit(EXIT_FAILURE);
+			if (execve(cmd_path, args_array, NULL) == -1)
+			{
+				perror("Error");
+				exit(0);
+			}
 		}
-	} else if (pid < 0)
-	{
-		perror("fork");
-	} else
-	{
-		do {
-			status = waitpid(pid, &status, WUNTRACED);
-		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		else if (wait(&sts) == -1)
+			perror("Error");
+		free(cmd_path);
 	}
-
-	return (1);
+	return (0);
 }
-
