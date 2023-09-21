@@ -12,7 +12,7 @@
 void display_prompt(void);
 char *read_line(void);
 char **parse_line(char *line);
-int execute_command(char **args);
+int execute_command(char *arguments, char **args_array);
 int built_in_cmd(char *command);
 void handle_exit(void);
 void handle_environment(void);
