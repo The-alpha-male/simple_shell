@@ -29,13 +29,13 @@ void handle_exit(void)
  * handle_env - show environment variables to the standard output
  */
 
-void handle_env(void)
+void environment_printf(void)
 {
-	int i = 0;
+	char **str_var = environ;
 
-	while (environ[i] != NULL)
+	while (*str_var)
 	{
-		printf("%s\n", environ[i]);
-		i++;
+		printf("%s\n", str_var);
+		str_var++;
 	}
 }
