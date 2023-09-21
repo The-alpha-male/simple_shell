@@ -25,7 +25,7 @@ ssize_t get_user_line(char *cpt_inpt,
 	cb_pos = 0;
 	cb_size = buffer_size;
 	len_line = 0;
-	nw_pos = cd_pos;
+	nw_pos = cb_pos;
 
 	while (nw_pos < cb_size && buffer[nw_pos] != '\n')
 		nw_pos++;
@@ -33,7 +33,7 @@ ssize_t get_user_line(char *cpt_inpt,
 	newsize = len_line + 1;
 	newrine = malloc(newsize);
 
-	if (newline == NULL)
+	if (newrine == NULL)
 		return (-1);
 
 	for (x = 0; x < len_line; x++)

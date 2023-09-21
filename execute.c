@@ -16,7 +16,7 @@
 
 int exe_command(char *arguments, char **args_array)
 {
-	char *cmd_path, cmd;
+	char *cmd_path, *cmd;
 	pid_t process_id;
 	int sts;
 

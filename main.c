@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	char **args = argv;
 	ssize_t sts;
 	char *buffer = NULL;
-	ssize len;
+	size_t len;
 	int i;
 
 	while (1)
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 		if (args == NULL)
 			continue;
 		exe_command(args[0], args);
-		for (i = 0, args[i] != NULL; i++)
+		for (i = 0; args[i] != NULL; i++)
 			free(args[i]);
 		free(args);
 		free(buffer);

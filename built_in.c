@@ -35,7 +35,7 @@ void environment_printf(void)
 
 	while (*str_var)
 	{
-		printf("%s\n", str_var);
+		printf("%s\n", *str_var);
 		str_var++;
 	}
 }

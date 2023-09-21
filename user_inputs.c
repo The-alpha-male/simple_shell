@@ -10,9 +10,9 @@
  */
 char **userinput(char *str)
 {
-	char *args;
+	char **args;
 	int i;
-	char tkns;
+	char *tkns;
 	const char *delimitor = " \n\t\r";
 
 	i = 0;
@@ -36,7 +36,7 @@ char **userinput(char *str)
 			return (NULL);
 		}
 		tkns = strtok(NULL, delimitor);
-		i++
+		i++;
 	}
 	args[i] = NULL;
 	return (args);

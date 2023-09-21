@@ -12,13 +12,13 @@
 char *find_location(const char *cmd)
 {
 	char *tkns;
-	char *lnght;
+	int lnght;
 	char *path_env;
 	char *pathway;
 	char *fullpath;
 	const char *delimitor = ":";
 
-	if (strchr(cmd. '/') != NULL)
+	if (strchr(cmd, '/') != NULL)
 	{
 		if (access(cmd, X_OK) == 0)
 			return (strdup(cmd));
