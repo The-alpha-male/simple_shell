@@ -5,7 +5,7 @@
 
 /**
  * find_location - getting the whole path of a cmd
- * @cmd - the given command
+ * @cmd: the given command
  * Return: full path
  */
 
@@ -42,7 +42,7 @@ char *find_location(const char *cmd)
 		if (access(fullpath, F_OK) == 0)
 		{
 			free(pathway);
-			return(fullpath);
+			return (fullpath);
 		}
 		free(fullpath);
 		tkns = strtok(NULL, delimitor);
