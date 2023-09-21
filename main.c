@@ -1,29 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <stdbool.h>
 #include "shell.h"
 
+#define BUFFER_SIZE 1024
 /**
- * main - Entry point for the shell program.
- *
- * This function initializes the shell and enters a loop to read commands,
- * parse them, and execute them until the user decides to exit.
- *
- * Return: Always returns 0.
+ * main - entry to the shell
+ * @argc: len of args
+ * @argv: array of argments
+ * Return: 0 for success
  */
-int main(void)
+int main(int argc, char **argv)
 {
-	char *line;
-	char **args;
-	int status;
+	char **args = argv;
+	ssize_t sts;
+	char *buffer = NULL;
+	ssize len;
+	int i;
 
-	do {
+	while (1)
+	{
 		display_prompt();
-		line = read_line();
-		args = parse_line(line);
-		status = exe_command(args);
-
-		free(line);
+		sts = getline(&buffer, &len, stdin);
+		if (sts == -1)
+		{
+			free(buffer);
+			exit(0);
+		}
+		args = userinput(buffer);
+		if (args == NULL)
+			continue;
+		exe_command(args[0], args);
+		for (i = 0, args[i] != NULL; i++)
+			free(args[i]);
 		free(args);
-	} while (status);
-
+		free(buffer);
+		len = 0;
+		buffer = NULL;
+	}
+	if (args)
+	{
+		for (i = 0; args[i] != NULL; i++)
+		{
+			free(args[i]);
+		}
+		free(args);
+	}
 	return (0);
+	argc++;
 }
-
