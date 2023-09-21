@@ -16,7 +16,8 @@ int execute_command(char *arguments, char **args_array);
 int built_in_cmd(char *command);
 void handle_exit(void);
 void handle_environment(void);
-void handle_env(void);
+void environment_printf(void);
+char *find_location(const char *cmd);
 int exe_command(char **args);
 extern char **environ;
 #endif
