@@ -34,9 +34,9 @@ int exe_command(char **args)
 	if (pid == 0)
 	{
 
-		execvp(args[0], args);
+		execve(args[0], args, environ);
 
-		perror("execvp");
+		perror("execve");
 		exit(EXIT_FAILURE);
 	} else if (pid < 0)
 	{
