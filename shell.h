@@ -21,4 +21,5 @@ char *find_location(const char *cmd);
 int exe_command(char **args);
 extern char **environ;
 char **userinput(char *str);
+ssize_t get_user_line(char *cpt_inpt, size_t buffer_size, char **line, size_t *n);
 #endif
