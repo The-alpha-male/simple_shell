@@ -20,4 +20,5 @@ void environment_printf(void);
 char *find_location(const char *cmd);
 int exe_command(char **args);
 extern char **environ;
+char **userinput(char *str);
 #endif
