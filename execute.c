@@ -10,7 +10,7 @@
 /**
  * exe_command - checks if 1st element of array is NULL
  * @arguments: pointer to a args
- * @args_array: urguments container
+ * @args_array: arguments container
  * Return: (1) SUCCESS
  */
 
@@ -24,11 +24,10 @@ int exe_command(char *arguments, char **args_array)
 		return (0);
 	cmd = args_array[0];
 	if (strcmp(cmd, "env") == 0)
-		/*print the environment*/
+		/*print the env*/
 		environment_printf();
 	else if (strcmp(cmd, "exit") == 0)
 	{
-		/*exit*/
 		handle_exit();
 	}
 	else
