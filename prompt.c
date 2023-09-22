@@ -11,7 +11,7 @@
 void handle_signal(int sig)
 {
 	(void)sig;
-	write(STDOUT_FILENO, "\n#ThisIsC$ ", 10);
+	write(STDOUT_FILENO, "\n#Simple_shell$ ", 10);
 }
 
 /**
@@ -24,6 +24,6 @@ void display_prompt(void)
 	{
 		signal(SIGINT, handle_signal);
 
-		write(STDOUT_FILENO, "\n#ThisIsC$ ", 10);
+		write(STDOUT_FILENO, "\n#Simple_shell$ ", 10);
 	}
 }
