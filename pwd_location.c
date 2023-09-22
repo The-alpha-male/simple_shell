@@ -6,6 +6,7 @@
 /**
  * find_location - getting the whole path of a cmd
  * @cmd: the given command
+ *
  * Return: full path
  */
 
@@ -50,4 +51,3 @@ char *find_location(const char *cmd)
 	free(pathway);
 	return (NULL);
 }
-
