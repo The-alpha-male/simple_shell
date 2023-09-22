@@ -24,4 +24,6 @@ extern char **environ;
 char **userinput(char *str);
 ssize_t get_user_line(char *cpt_inpt, size_t buffer_size,
 		char **line, size_t *n);
+void handle_signal(int sig);
+void display_prompt(void);
 #endif
