@@ -58,7 +58,7 @@ $ echo "echo $HOME" | ./shell
 The current working directory as set by the **cd** command.
 
 ```
-$ echo "echo $PWD" | ./shell
+$ echo "echo $pwd" | ./shell
 /home/vagrant/main/simple_shell
 ```
 
@@ -67,7 +67,7 @@ $ echo "echo $PWD" | ./shell
 The previous working directory as set by the **cd** command.
 
 ```
-$ echo "echo $OLDPWD" | ./shell
+$ echo "echo $oldpwd" | ./shell
 /home/vagrant/menu
 ```
 
