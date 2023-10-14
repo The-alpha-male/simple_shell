@@ -17,16 +17,16 @@ Example:
 
 `$ echo "echo 'main'" | ./shell`
 `'main'`
-``$``
+`$`
 
 When **shell** is invoked with standard input connected to a terminal (determined by isatty(3), the interactive mode is opened. **shell** Will be using the following prompt `^-^ `.
 
 Example:
 
-```
+`
 $./shell
 ^-^
-```
+`
 
 If a command line argument is invoked, **shell** will take that first argument as a file from which to read commands.
 
